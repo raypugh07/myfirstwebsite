@@ -17,7 +17,10 @@
        mysqli_select_db($mysqli,"first_db"); //connects to database
        $order = "INSERT INTO list(details, date_posted, time_posted, public) VALUES ('$details','$date','$time','$decision')"; //SQL query
        $result = mysqli_query($mysqli,$order);
-       header("location:home.php");
+       header("location:home.php"); //redirects to home page
+       
+       //need to figure out how to convert foreach method for my syntax
+
        /* foreach($_POST["public"] in $each_check) //gets the data from the checkbox
        {
           if($each_check != null){ //checks if checkbox is checked
