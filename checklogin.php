@@ -1,11 +1,10 @@
 <?php
     session_start();
-    $username = mysqli_real_escape_string($mysqli,$_POST['username']);
-    $password = mysqli_real_escape_string($mysqli,$_POST['password']);
-    $bool = true;
+    $username = $_POST['username'];  // see register page comments for explanation of changes
+    $password = $_POST['password'];
 
-    $mysqli = mysqli_connect("localhost", "root", "") or die (mysqli_error($mysqli)); //Connect to server
-    mysqli_select_db($mysqli,"first_db") or die ("Cannot connect to database"); //Connect to database
+    $mysqli = mysqli_connect("localhost", "root", ""); //connects to server
+    mysqli_select_db($mysqli,"first_db"); //connects to database
     $query = mysqli_query($mysqli,"Select * from users WHERE username='$username'"); // Query the users table
     $exists = mysqli_num_rows($query); //Checks if username exists
     $table_users = "";
